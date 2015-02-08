@@ -1,5 +1,5 @@
 
-#property copyright "(c) 2014 MyCompany Co."
+#property copyright "(c) 2015 MyCompany Co."
 #property link "http://www.mycompany.com"
 
 #import "nquotes/nquoteslib.ex4"
