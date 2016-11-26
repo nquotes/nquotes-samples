@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.symbolLabel = new System.Windows.Forms.Label();
             this.getInfoButton = new System.Windows.Forms.Button();
@@ -37,6 +38,7 @@
             this.statusLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.brokerCompanyLabel = new System.Windows.Forms.Label();
+            this.statusTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -125,6 +127,12 @@
             this.brokerCompanyLabel.TabIndex = 8;
             this.brokerCompanyLabel.Text = "<unknown>";
             // 
+            // statusTimer
+            // 
+            this.statusTimer.Enabled = true;
+            this.statusTimer.Interval = 1000;
+            this.statusTimer.Tick += new System.EventHandler(this.statusTimer_Tick);
+            // 
             // TestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -157,5 +165,6 @@
         private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label brokerCompanyLabel;
+        private System.Windows.Forms.Timer statusTimer;
     }
 }
