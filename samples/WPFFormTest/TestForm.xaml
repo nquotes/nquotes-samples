@@ -1,0 +1,17 @@
+﻿<Window x:Class="WPFFormTest.TestForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WPF Test Form" Height="339.6" Width="251.4" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Closing="window_Closing">
+    <Grid>
+        <Label Content="Local time:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.42,2.367" Width="97"/>
+        <Label x:Name="localTimeLabel" Content="{}{local time}" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.315,0.6" Width="138" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+        <Label Content="Status:" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.542,0.138" Width="97"/>
+        <Label x:Name="statusLabel" Content="{}{status}" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top" Width="138" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+        <Button x:Name="getInfoButton" Content="Get information" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Width="138" Height="28" Click="getInfoButton_Click"/>
+        <Label Content="Current symbol:" HorizontalAlignment="Left" Margin="10,177,0,0" VerticalAlignment="Top" Width="97"/>
+        <Label x:Name="symbolLabel" Content="{}{current symbol}" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top" Width="138" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+        <Label Content="Broker company:" HorizontalAlignment="Left" Margin="10,235,0,0" VerticalAlignment="Top" Width="97"/>
+        <Label x:Name="brokerCompanyLabel" Content="{}{broker company}" HorizontalAlignment="Left" Margin="10,263,0,0" VerticalAlignment="Top" Width="138" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+
+    </Grid>
+</Window>
