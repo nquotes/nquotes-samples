@@ -1,5 +1,5 @@
 
-#property copyright "(c) 2017 MyCompany Co."
+#property copyright "(c) 2019 MyCompany Co."
 #property link "http://www.mycompany.com"
 
 #import "nquotes/nquoteslib.ex4"
@@ -66,15 +66,18 @@ int deinit()
 
 // optional event handlers:
 // https://docs.mql4.com/basis/function/events
+void OnTimer()
+{
+	nquotes_on_timer();
+}
+
+void OnChartEvent(const int id, const long& lparam, const double& dparam, const string& sparam)
+{
+	nquotes_on_chart_event(id, lparam, dparam, sparam);
+}
+
+// disabled to save performance while testing
 //double OnTester()
 //{
 //	return (nquotes_on_tester());
-//}
-//void OnTimer()
-//{
-//	nquotes_on_timer();
-//}
-//void OnChartEvent(const int id, const long& lparam, const double& dparam, const string& sparam)
-//{
-//	nquotes_on_chart_event(id, lparam, dparam, sparam);
 //}
