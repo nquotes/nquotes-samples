@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.452
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugHost", "DebugHost\DebugHost.csproj", "{638D4EED-83D3-452B-9531-397BF497144A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLLMethodCaller", "DLLMethodCaller.csproj", "{07AB22B4-40E0-44C7-9998-DA13D30C9C9E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{638D4EED-83D3-452B-9531-397BF497144A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{638D4EED-83D3-452B-9531-397BF497144A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{638D4EED-83D3-452B-9531-397BF497144A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{638D4EED-83D3-452B-9531-397BF497144A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07AB22B4-40E0-44C7-9998-DA13D30C9C9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07AB22B4-40E0-44C7-9998-DA13D30C9C9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07AB22B4-40E0-44C7-9998-DA13D30C9C9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07AB22B4-40E0-44C7-9998-DA13D30C9C9E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EF266328-2991-4F38-819B-731CF37CAF83}
+	EndGlobalSection
+EndGlobal
