@@ -1,4 +1,4 @@
-﻿
+
 namespace DLLMethodCaller
 {
     public class Program
