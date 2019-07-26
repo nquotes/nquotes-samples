@@ -45,13 +45,20 @@
 int init()
 {
 	nquotes_setup("DLLMethodCaller.DLLMethodCallerEA", "DLLMethodCaller");
-	
-	return (nquotes_init());
+	nquotes_set_property_int ("MoneyAmount",999);
+        nquotes_set_property_string ("ActionName","GiveMoney");
+        nquotes_set_property_datetime ("MyBirthday",D'2000.03.05 15:46:58');
+ 	return (nquotes_init());
 }
 
 int start()
 {
-	return (nquotes_start());
+	 int r=nquotes_start();
+	 //nquotes_set_property_int ("MoneyAmount",MoneyAmount);
+	 nquotes_set_property_string ("ActionName","PredictFuture");
+         string future = nquotes_get_property_string("FuturePrediction");
+   	 Comment("FuturePrediction is: " + future);
+   	 return r;
 }
 
 int deinit()

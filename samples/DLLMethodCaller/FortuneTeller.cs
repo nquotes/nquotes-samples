@@ -7,14 +7,22 @@ namespace DLLMethodCaller
 {
     class FortuneTeller
     {
+        private int total;
         public void AcceptMoney(int amount)
         {
-            // TODO
+            total += amount;
         }
 
         public string PredictFuture(DateTime birthday, bool isMarried)
         {
-            // TODO
+            if (isMarried)
+                return "You're broke!";
+
+            Random random = new Random(int.Parse(birthday.ToString("yyyyMMdd")));
+            lock (random) // synchronize
+            {
+                return $"You're rich, You're worth {random.Next(0, total)} today!";
+            }
             return "";
         }
     }
