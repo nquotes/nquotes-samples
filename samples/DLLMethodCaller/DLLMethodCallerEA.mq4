@@ -41,43 +41,59 @@
 	int nquotes_get_property_array_size(string name);
 	int nquotes_get_property_adouble(string name, double& value[]);
 #import
+//extern int MoneyAmount = 12345;
+//extern datetime MyBirthday;
+//extern bool AmMarried;
 
 int init()
 {
+   EventSetTimer(5);
 	nquotes_setup("DLLMethodCaller.DLLMethodCallerEA", "DLLMethodCaller");
-	nquotes_set_property_int ("MoneyAmount",999);
-        nquotes_set_property_string ("ActionName","GiveMoney");
-        nquotes_set_property_datetime ("MyBirthday",D'2000.03.05 15:46:58');
- 	return (nquotes_init());
+	return (nquotes_init());
 }
 
 int start()
 {
-	 int r=nquotes_start();
-	 //nquotes_set_property_int ("MoneyAmount",MoneyAmount);
-	 nquotes_set_property_string ("ActionName","PredictFuture");
-         string future = nquotes_get_property_string("FuturePrediction");
-   	 Comment("FuturePrediction is: " + future);
-   	 return r;
+   GiveMoney(10);
+   nquotes_set_property_datetime ("MyBirthday",TimeCurrent() - 1000000000);
+   nquotes_set_property_string ("ActionName","PredictFuture");
+	Comment("FuturePrediction is: " + PredictFuture());
+	GiveMoney(100);
+	nquotes_set_property_datetime ("MyBirthday",TimeCurrent() - 1000000000);
+	nquotes_set_property_string ("ActionName","PredictFuture");
+	Comment("FuturePrediction is: " + PredictFuture());
+	return 0;
 }
 
 int deinit()
 {
-	return (nquotes_deinit());
+   return (nquotes_deinit());
 }
 
 // optional event handlers:
 // https://docs.mql4.com/basis/function/events
 void OnTimer()
 {
+   start();
 	nquotes_on_timer();
 }
 
 void OnChartEvent(const int id, const long& lparam, const double& dparam, const string& sparam)
-{
-	nquotes_on_chart_event(id, lparam, dparam, sparam);
+{  
+  nquotes_on_chart_event(id, lparam, dparam, sparam);
 }
 
+string PredictFuture(){
+   nquotes_set_property_string ("ActionName","PredictFuture");
+   nquotes_start();
+   return nquotes_get_property_string("FuturePrediction");
+}
+
+void GiveMoney(int amount){
+   nquotes_set_property_int ("MoneyAmount",amount);
+   nquotes_set_property_string ("ActionName","GiveMoney");
+   nquotes_start();
+}
 // disabled to save performance while testing
 //double OnTester()
 //{
