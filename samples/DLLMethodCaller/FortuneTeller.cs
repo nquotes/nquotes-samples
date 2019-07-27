@@ -8,7 +8,7 @@ namespace DLLMethodCaller
     class FortuneTeller
     {
         private int total;
-        private int fortuneTellerFee = 1;
+        
         public void AcceptMoney(int amount)
         {
             total += amount;
@@ -16,14 +16,24 @@ namespace DLLMethodCaller
 
         public string PredictFuture(DateTime birthday, bool isMarried)
         {
-            total -= fortuneTellerFee;
+            
             if (total ==0 || isMarried)
-                return "You're broke!";
-            if (total < 0 )
-                return "You're in debt!";
+                return "You're broke!"; 
 
             Random random = new Random(int.Parse(birthday.ToString("MMddHHmmss")));
-            return $"You're {(total<100?"not so":"")} rich. You're worth {random.Next(0, total)} today!";
+            int prediction = random.Next(0, total);
+            string answer;
+            if (total < 100)
+            {
+                answer = $"You're not rich but also not broke. That's a good thing. You're worth {prediction} today!";
+            }
+            else
+            {
+                answer = $"You're rich! Well done! You're worth {prediction} today!";
+            }
+            
+            total = 0;
+            return answer;
         }
     }
 }

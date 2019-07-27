@@ -41,9 +41,6 @@
 	int nquotes_get_property_array_size(string name);
 	int nquotes_get_property_adouble(string name, double& value[]);
 #import
-//extern int MoneyAmount = 12345;
-//extern datetime MyBirthday;
-//extern bool AmMarried;
 
 int init()
 {
@@ -54,14 +51,8 @@ int init()
 
 int start()
 {
-   GiveMoney(10);
-   nquotes_set_property_datetime ("MyBirthday",TimeCurrent() - 1000000000);
-   nquotes_set_property_string ("ActionName","PredictFuture");
-	Comment("FuturePrediction is: " + PredictFuture());
-	GiveMoney(100);
-	nquotes_set_property_datetime ("MyBirthday",TimeCurrent() - 1000000000);
-	nquotes_set_property_string ("ActionName","PredictFuture");
-	Comment("FuturePrediction is: " + PredictFuture());
+   GiveMoney(100);
+	Comment("FuturePrediction is: " + PredictFuture(TimeCurrent() - 1000000000,false));
 	return 0;
 }
 
@@ -83,7 +74,9 @@ void OnChartEvent(const int id, const long& lparam, const double& dparam, const 
   nquotes_on_chart_event(id, lparam, dparam, sparam);
 }
 
-string PredictFuture(){
+string PredictFuture(datetime birthday, bool isMarried){
+   nquotes_set_property_datetime ("MyBirthday",birthday);
+   nquotes_set_property_bool ("isMarried",isMarried);
    nquotes_set_property_string ("ActionName","PredictFuture");
    nquotes_start();
    return nquotes_get_property_string("FuturePrediction");
