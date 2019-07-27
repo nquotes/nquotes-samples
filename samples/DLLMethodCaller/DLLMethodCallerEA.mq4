@@ -44,33 +44,49 @@
 
 int init()
 {
+   EventSetTimer(5);
 	nquotes_setup("DLLMethodCaller.DLLMethodCallerEA", "DLLMethodCaller");
-	
 	return (nquotes_init());
 }
 
 int start()
 {
-	return (nquotes_start());
+   GiveMoney(100);
+	Comment("FuturePrediction is: " + PredictFuture(TimeCurrent() - 1000000000,false));
+	return 0;
 }
 
 int deinit()
 {
-	return (nquotes_deinit());
+   return (nquotes_deinit());
 }
 
 // optional event handlers:
 // https://docs.mql4.com/basis/function/events
 void OnTimer()
 {
+   start();
 	nquotes_on_timer();
 }
 
 void OnChartEvent(const int id, const long& lparam, const double& dparam, const string& sparam)
-{
-	nquotes_on_chart_event(id, lparam, dparam, sparam);
+{  
+  nquotes_on_chart_event(id, lparam, dparam, sparam);
 }
 
+string PredictFuture(datetime birthday, bool isMarried){
+   nquotes_set_property_datetime ("MyBirthday",birthday);
+   nquotes_set_property_bool ("isMarried",isMarried);
+   nquotes_set_property_string ("ActionName","PredictFuture");
+   nquotes_start();
+   return nquotes_get_property_string("FuturePrediction");
+}
+
+void GiveMoney(int amount){
+   nquotes_set_property_int ("MoneyAmount",amount);
+   nquotes_set_property_string ("ActionName","GiveMoney");
+   nquotes_start();
+}
 // disabled to save performance while testing
 //double OnTester()
 //{
