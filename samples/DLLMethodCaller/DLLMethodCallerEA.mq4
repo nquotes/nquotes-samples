@@ -43,13 +43,15 @@
 #import
 
 
-void GiveMoney(int amount) {
+void GiveMoney(int amount)
+{
 	nquotes_set_property_string("ActionName", "GiveMoney");
 	nquotes_set_property_int("MoneyAmount", amount);
 	nquotes_start();
 }
 
-string PredictFuture(datetime birthday, bool isMarried) {
+string PredictFuture(datetime birthday, bool isMarried)
+{
 	nquotes_set_property_string("ActionName", "PredictFuture");
 	nquotes_set_property_datetime("MyBirthday", birthday);
 	nquotes_set_property_bool("isMarried", isMarried);
@@ -66,9 +68,23 @@ int init()
 
 int start()
 {
+	datetime birthday = D'2001.02.03';
+	string prediction;
+	prediction = PredictFuture(birthday, false);
+	Print("The fortune teller says: ", prediction);
+
+	GiveMoney(5);
+	prediction = PredictFuture(birthday, false);
+	Print("The fortune teller says: ", prediction);
+
 	GiveMoney(100);
-	string prediction = PredictFuture(D'2001.02.03', false);
-	Print("The fortune teller predicts: ", prediction);
+	prediction = PredictFuture(D'2002.03.04', false);
+	Print("The fortune teller says: ", prediction);
+
+	GiveMoney(1000);
+	prediction = PredictFuture(birthday, true);
+	Print("The fortune teller says: ", prediction);
+
 	return 0;
 }
 
