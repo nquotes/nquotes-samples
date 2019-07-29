@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using NQuotes;
 
 namespace DLLMethodCaller
@@ -9,7 +7,10 @@ namespace DLLMethodCaller
     {
         public string ActionName { get; set; }
 
+        // GiveMoney action parameters
         public int MoneyAmount { get; set; }
+
+        // PredictFuture action parameters
         public DateTime MyBirthday { get; set; }
         public bool AmMarried { get; set; }
         public string FuturePrediction { get; set; }
@@ -25,11 +26,9 @@ namespace DLLMethodCaller
 
         public override int start()
         {
-
             switch (ActionName)
             {
                 case "GiveMoney":
-
                     fortuneTeller.AcceptMoney(MoneyAmount);
                     break;
                 case "PredictFuture":
