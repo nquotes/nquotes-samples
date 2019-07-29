@@ -43,18 +43,18 @@
 #import
 
 
-void GiveMoney(int amount)
+void GiveMoney(int moneyAmount)
 {
 	nquotes_set_property_string("ActionName", "GiveMoney");
-	nquotes_set_property_int("MoneyAmount", amount);
+	nquotes_set_property_int("MoneyAmount", moneyAmount);
 	nquotes_start();
 }
 
-string PredictFuture(datetime birthday, bool isMarried)
+string PredictFuture(datetime myBirthday, bool amMarried)
 {
 	nquotes_set_property_string("ActionName", "PredictFuture");
-	nquotes_set_property_datetime("MyBirthday", birthday);
-	nquotes_set_property_bool("isMarried", isMarried);
+	nquotes_set_property_datetime("MyBirthday", myBirthday);
+	nquotes_set_property_bool("AmMarried", amMarried);
 	nquotes_start();
 	return nquotes_get_property_string("FuturePrediction");
 }
@@ -68,13 +68,13 @@ int init()
 
 int start()
 {
-	datetime birthday = D'2001.02.03';
 	string prediction;
-	prediction = PredictFuture(birthday, false);
-	Print("The fortune teller says: ", prediction);
 
 	GiveMoney(5);
-	prediction = PredictFuture(birthday, false);
+	prediction = PredictFuture(D'2001.02.03', false);
+	Print("The fortune teller says: ", prediction);
+
+	prediction = PredictFuture(D'2002.03.04', false);
 	Print("The fortune teller says: ", prediction);
 
 	GiveMoney(100);
@@ -82,7 +82,7 @@ int start()
 	Print("The fortune teller says: ", prediction);
 
 	GiveMoney(1000);
-	prediction = PredictFuture(birthday, true);
+	prediction = PredictFuture(D'1990.01.02', true);
 	Print("The fortune teller says: ", prediction);
 
 	return 0;
